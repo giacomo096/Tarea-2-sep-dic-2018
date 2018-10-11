@@ -55,7 +55,7 @@ class Trabajador():
             if actIns == 0:
                 if edadActual >= 60:
                     if cantiSem >= 750:
-                        return("Merece pension 1")
+                        return("Merece pension")
         
             if actIns > 0:
                 if cantiSem >= 750:
@@ -64,13 +64,13 @@ class Trabajador():
                             edadAcep = 60 - (actIns / 4)
     
                             if edadActual >= edadAcep:
-                                return("Merece pension 2")
+                                return("Merece pension")
     
                         if actIns > 20:
                             edadAcep = 60 - 5
     
                             if edadActual >= edadAcep:
-                                return("Merece pension 3")
+                                return("Merece pension")
     
                     if (actIns % 4) != 0:
                         if actIns < 20:
@@ -78,13 +78,13 @@ class Trabajador():
                             edadAcep = 60 - actIns
     
                             if edadActual >= edadAcep:
-                                return("Merece pension 4")
+                                return("Merece pension")
     
                         if actIns > 20:
                             edadAcep = 60 - 5
     
                             if edadActual >= edadAcep:
-                                return("Merece pension 5")
+                                return("Merece pension")
     
             return("No merece pension")
     
@@ -92,7 +92,7 @@ class Trabajador():
             if actIns == 0:
                 if edadActual >= 55:
                     if cantiSem >= 750:
-                        return("Merece pension 6")
+                        return("Merece pension")
         
             if actIns > 0:
                 if cantiSem >= 750:
@@ -101,13 +101,13 @@ class Trabajador():
                             edadAcep = 55 - (actIns / 4)
     
                             if edadActual >= edadAcep:
-                                return("Merece pension 7")
+                                return("Merece pension")
     
                         if actIns > 20:
                             edadAcep = 55 - 5
     
                             if edadActual >= edadAcep:
-                                return("Merece pension 8")
+                                return("Merece pension")
     
                     if (actIns % 4) != 0:
                         if actIns < 20:
@@ -115,13 +115,13 @@ class Trabajador():
                             edadAcep = 55 - actIns
     
                             if edadActual >= edadAcep:
-                                return("Merece pension 9")
+                                return("Merece pension")
     
                         if actIns > 20:
                             edadAcep = 55 - 5
     
                             if edadActual >= edadAcep:
-                                return("Merece pension 10")
+                                return("Merece pension")
     
             return("No merece pension")
     
