@@ -1,7 +1,7 @@
 '''
 Created on Oct 10, 2018
 
-@author: giacomo
+
 '''
 import unittest
 from Tarea import *
