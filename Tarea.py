@@ -1,7 +1,6 @@
 '''
 Created on Oct 10, 2018
 
-@author: giacomo
 '''
 import datetime
 
@@ -30,15 +29,15 @@ class Trabajador():
     
         #Inicio de casos borde
         if int(anoNac) > now.year:
-            return("Ano invalido")
+            return("No ha nacido")
         if (now.year - int(anoNac)) > 122:
             return("Edad invalida")
     
         if cantiSem < 0:
-            return("La cantidad de semanas trabajadas no puede ser negativa")
+            return("Error de negativo")
     
         if actIns < 0:
-            return("La cantidad de anos trabajando en actividades insalubres no puede ser negativa")
+            return("Error de negativo")
     
         #Fin de los casos borde
     

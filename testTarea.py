@@ -1,7 +1,6 @@
 '''
-Created on Oct 10, 2018
 
-@author: giacomo
+
 '''
 import unittest
 from Tarea import *
@@ -31,8 +30,8 @@ class Test(unittest.TestCase):
         self.t =  Trabajador("Name","m","10/10/1958",1000,0)
         self.assertEqual("Merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")  
     def testCasiEdadMin(self):
-        #prueba realizada el 10/10/2018, dio correcta en esta fecha 
-        self.t =  Trabajador("Name","m","11/10/1958",1000,0)       
+        #prueba realizada el 11/10/2018, dio correcta en esta fecha 
+        self.t =  Trabajador("Name","m","12/10/1958",1000,0)       
         self.assertEqual("No merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error") 
     def testHorasMin(self):
         self.t =  Trabajador("Name","f","10/10/1938",750,0)
@@ -45,9 +44,55 @@ class Test(unittest.TestCase):
         #prueba realizada el 10/10/2018, dio correcta en esta fecha
         self.t =  Trabajador("Name","f","10/10/1961",750,8)
         self.assertEqual("Merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testEdadMinHorasMin2(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","M","10/10/1963",750,20)
+        self.assertEqual("Merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testCasiEdadMinHorasMin(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","f","10/11/1966",750,12)
+        self.assertEqual("No merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testEdadMinCasiHorasMin(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","f","10/10/1966",749,12)
+        self.assertEqual("No merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testCasiEdadMinCasiHorasMin(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","f","27/12/1969",749,20)
+        self.assertEqual("No merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")    
+    def testSobreMaxEdad(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","f","11/10/1895",2000,0)
+        self.assertEqual("Edad invalida", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")     
+    def testMaxEdad(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","f","11/10/1896",2000,0)
+        self.assertEqual("Merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testMaxEdadMinHora(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","f","11/10/1896",750,0)
+        self.assertEqual("Merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testMaxEdadCasiHoraMin(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","f","11/10/1896",749,0)
+        self.assertEqual("No merece pension", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testPruebaMaliciaH(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","f","11/10/1896",-20,30)
+        self.assertEqual("Error de negativo", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testPruebaMaliciaHi(self):
+        #prueba realizada el 10/10/2018, dio correcta en esta fecha
+        self.t =  Trabajador("Name","f","11/10/1896",749,-15)
+        self.assertEqual("Error de negativo", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testPruebaMaliciaFecha(self):
         
+        self.t =  Trabajador("Name","f","11/10/3450",1500,10)
+        self.assertEqual("No ha nacido", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+    def testPruebaMaliciaSexo(self):
         
-         
+        self.t =  Trabajador("Name","W","11/10/1930",1500,10)
+        self.assertEqual("Sexo invalido", self.t.pension(self.t.sexo,self.t.fechaNac,self.t.cantiSem,self.t.actIns), "Error")
+
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
