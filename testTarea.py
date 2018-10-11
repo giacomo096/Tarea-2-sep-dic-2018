@@ -1,7 +1,13 @@
 '''
 Created on Oct 10, 2018
 
+Tarea 2 - Ingeniería de Software I
 
+Universidad Simón Bolívar
+
+Autores: Javier Vivas - 12-11067
+         Giacomo Tosone - 14-11085
+         
 '''
 import unittest
 from Tarea import *
