@@ -40,7 +40,7 @@ class Trabajador():
         if actIns < 0:
             return("La cantidad de anos trabajando en actividades insalubres no puede ser negativa")
     
-        #Fin de casos borde
+        #Fin de los casos borde
     
         edadActual = now.year - int(anoNac)
     
