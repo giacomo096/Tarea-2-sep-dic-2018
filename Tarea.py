@@ -1,6 +1,12 @@
 '''
 Created on Oct 10, 2018
 
+Tarea 2 - Ingeniería de Software I
+
+Universidad Simón Bolívar
+
+Autores: Javier Vivas - 12-11067
+         Giacomo Tosone - 14-11085
 
 '''
 import datetime
@@ -10,7 +16,14 @@ class Trabajador():
     classdocs
     '''
 
-
+    '''
+    @param nombre: Indica el nombre de la persona
+    @param sexo: Indica el sexo de la persona
+    @param fechaNac: Indica la fecha de nacimiento de la persona
+    @param cantiSem: Indica la cantidad de semanas trabajadas cotizadas
+    @param actIns: Indica la cantidad de años trabajando en ambientes insalubres
+    '''
+    
     def __init__(self, nombre, sexo, fechaNac, cantiSem, actIns ):
         self.nombre = nombre
         self.sexo = sexo
@@ -29,6 +42,7 @@ class Trabajador():
         anoNac = fecha[2]
     
         #Inicio de casos borde
+        
         if int(anoNac) > now.year:
             return("Ano invalido")
         if (now.year - int(anoNac)) > 122:
@@ -51,6 +65,8 @@ class Trabajador():
             if int(diaNac) > now.day:
                 edadActual = edadActual - 1
     
+        #Calculo para determinar si merece pension en caso de ser masculino el sexo
+        
         if (sexo == "M") | (sexo == "m"):
             if actIns == 0:
                 if edadActual >= 60:
@@ -87,6 +103,8 @@ class Trabajador():
                                 return("Merece pension 5")
     
             return("No merece pension")
+    
+        #Calculo para determinar si merece pension en caso de ser femenino el sexo
     
         if (sexo == "F") | (sexo == "f"):
             if actIns == 0:
@@ -126,7 +144,5 @@ class Trabajador():
             return("No merece pension")
     
         else:
-            return("Sexo invalido")
-    
-    #pension("m","4/11/1950",750,0)                    
+            return("Sexo invalido")         
     
